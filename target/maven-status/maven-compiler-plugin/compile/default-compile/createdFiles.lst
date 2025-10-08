@@ -1,0 +1,3 @@
+store\gateway\GatewayResource.class
+store\gateway\GatewayApplication.class
+store\gateway\security\CorsFilter.class
