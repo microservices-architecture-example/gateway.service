@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    environment {
+        SERVICE = 'gateway'
+        NAME = "luigilopesz/${env.SERVICE}"
+    }
     stages {
         stage('Build') { 
             steps {
