@@ -94,9 +94,11 @@ public class AuthorizationFilter implements GlobalFilter {
             .flatMap(response -> {
                 if (response != null && response.hasBody() && response.getBody() != null) {
                     final Map<String, String> map = response.getBody();
-                    String idAccount = map.get("idAccount");
-                    logger.debug("solve: id account: " + idAccount);
-                    ServerWebExchange authorizated = updateRequest(exchange, idAccount);
+                    String accountId = map.get("AccountId");
+                    String role = map.get("role");
+                    logger.debug("solve: id account: " + accountId);
+                    logger.debug("solve: role account: " + role);
+                    ServerWebExchange authorizated = updateRequest(exchange, accountId, role);
                     return chain.filter(authorizated);
                 } else {
                     throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Invalid token");
@@ -104,13 +106,14 @@ public class AuthorizationFilter implements GlobalFilter {
             });
     }
 
-    private ServerWebExchange updateRequest(ServerWebExchange exchange, String idAccount) {
+    private ServerWebExchange updateRequest(ServerWebExchange exchange, String idAccount, String role) {
         logger.debug("original headers: " + exchange.getRequest().getHeaders().toString());
         ServerWebExchange modified = exchange.mutate()
             .request(
                 exchange.getRequest()
                     .mutate()
                     .header("id-account", idAccount)
+                    .header("role-account", role)
                     .build()
             ).build();
         logger.debug("updated headers: " + modified.getRequest().getHeaders().toString());

@@ -1,3 +1,5 @@
 C:\Users\luigi\projects\insper\1berto\all\api\gateway.service\src\main\java\store\gateway\GatewayApplication.java
 C:\Users\luigi\projects\insper\1berto\all\api\gateway.service\src\main\java\store\gateway\GatewayResource.java
+C:\Users\luigi\projects\insper\1berto\all\api\gateway.service\src\main\java\store\gateway\security\AuthorizationFilter.java
 C:\Users\luigi\projects\insper\1berto\all\api\gateway.service\src\main\java\store\gateway\security\CorsFilter.java
+C:\Users\luigi\projects\insper\1berto\all\api\gateway.service\src\main\java\store\gateway\security\RouterValidator.java
