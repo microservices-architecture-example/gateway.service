@@ -38,6 +38,7 @@ spring:
           uri: http://exchange:8080
           predicates:
             - Path=/exchange/**
+        
 
 logging:
   level:
