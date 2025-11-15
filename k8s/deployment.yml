@@ -13,7 +13,7 @@ spec:
         app: gateway
     spec:
       containers:
-        - name: db
+        - name: gateway
           image: luigilopesz/gateway:latest
           imagePullPolicy: Always
           ports:

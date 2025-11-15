@@ -59,10 +59,9 @@ pipeline {
 
                     kubectl config current-context
 
-                    # aplica manifest inicial se ainda não existir
-                    if ! kubectl get deploy ${SERVICE} >/dev/null 2>&1; then
+                    # Aplica as configurações do k8s.
+                    # Isso vai criar o deployment se não existir, ou atualizá-lo se já existir.
                     kubectl apply -f ./k8s/
-                    fi
 
                     # atualiza a imagem do Deployment
                     kubectl set image deploy/${SERVICE} ${SERVICE}=${NAME}:${BUILD_ID} --record
