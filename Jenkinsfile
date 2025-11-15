@@ -34,7 +34,10 @@ pipeline {
         stage('Deploy to EKS') {
             agent {
                 // Use a docker agent with AWS CLI. Kubectl will be installed in the steps.
-                docker { image 'amazon/aws-cli:latest' }
+                docker {
+                    image 'amazon/aws-cli:latest'
+                    args '--entrypoint=""'
+                }
             }
             steps {
                 // Usa credenciais AWS do Jenkins (Access Key / Secret)
