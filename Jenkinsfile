@@ -7,12 +7,6 @@ pipeline {
         EKS_CLUSTER = 'eks-store'
     }
     stages {
-        stage('Dependecies') {
-            steps {
-                // dispara o job da interface correspondente e aguarda concluir
-                build job: "${env.SERVICE}", wait: true
-            }
-        }
         stage('Build') { 
             steps {
                 sh 'mvn -B -DskipTests clean package'
